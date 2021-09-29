@@ -24,11 +24,13 @@ export default async function commentHandler (tools: SlashAssignToolkit) {
 
     // Check if it has no assignees
     if (issue.assignee) {
-      const fail_comment = mustache.render(tools.inputs.fail_comment)
+      const fail_cmnt = mustache.render(tools.inputs.fail_comment, {
+        inputs: getInputsFromTools(tools)
+      })
 
       await tools.github.issues.createComment({
         ...tools.context.issue,
-        fail_comment
+        fail_cmnt
       })
 
       return tools.exit.failure(

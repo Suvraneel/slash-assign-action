@@ -55,5 +55,4 @@ inputs:
         * `comment` (an object of the comment that was created)
         * `env` (`process.env`, anything you pass to the action via `env`)
     default: |
-      This issue is already assigned to @{{ assignee.login }}! Please find/create a new issue to contribute to. You can safely disregard the failed workflow notification for this issue.
-
+      This issue is already assigned! Please find/create a new issue to contribute to. You can safely disregard the failed workflow notification for this issue.
