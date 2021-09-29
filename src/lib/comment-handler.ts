@@ -31,8 +31,9 @@ export default async function commentHandler (tools: SlashAssignToolkit) {
       })
 
       await tools.github.issues.createComment({
-        ...tools.context.issue,
-        fail_comment
+        // ...tools.context.issue,
+        // fail_comment
+        "This issue is already assigned"
       })
 
       return tools.exit.failure(
