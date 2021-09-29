@@ -24,6 +24,17 @@ export default async function commentHandler (tools: SlashAssignToolkit) {
 
     // Check if it has no assignees
     if (issue.assignee) {
+      const fail_comment = mustache.render(tools.inputs.failed_comment, {
+        comment,
+        env: process.env,
+        inputs: getInputsFromTools(tools)
+      })
+
+      await tools.github.issues.createComment({
+        ...tools.context.issue,
+        fail_comment
+      })
+
       return tools.exit.failure(
         `Issue #${issue.number} is already assigned to @${issue.assignee}`
       )

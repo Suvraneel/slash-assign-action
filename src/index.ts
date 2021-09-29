@@ -11,6 +11,7 @@ export interface Inputs {
   stale_assignment_label: string
   assigned_comment: string
   warning_comment: string
+  fail_comment: string
   [key: string]: string | undefined
 }
 

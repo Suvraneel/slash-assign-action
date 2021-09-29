@@ -10,5 +10,6 @@ export function getInputsFromTools (tools: SlashAssignToolkit) {
     days_until_unassign: tools.inputs.days_until_unassign,
     stale_assignment_label: tools.inputs.stale_assignment_label,
     assigned_comment: tools.inputs.assigned_comment,
+    fail_comment: tools.inputs.fail_comment,
   }
 }
