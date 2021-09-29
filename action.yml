@@ -47,4 +47,13 @@ inputs:
         * `env` (`process.env`, anything you pass to the action via `env`)
     default: |
       @{{ assignee.login }}, this issue hasn't had any activity in {{ inputs.days_until_warning }} days. It will become unassigned in {{ inputs.days_until_unassign }} days to make room for someone else to contribute.
+  fail_comment:
+    description: >
+      The comment posted after a user has assigned themselves to an issue.
+      This is a Mustache template that supports the following variables:
+        * `inputs` (the inputs given to the action)
+        * `comment` (an object of the comment that was created)
+        * `env` (`process.env`, anything you pass to the action via `env`)
+    default: |
+      This issue is already assigned to @{{ assignee.login }}!\nPlease find/create a new issue to contribute to. You can safely disregard the failed workflow notification for this issue.
 
